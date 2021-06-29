@@ -5,7 +5,7 @@ pipeline {
     stage("build") {
       steps {
         echo "Building the application..."
-        bat "msbuild.exe DockerrApi.sln"
+        bat "\"${tool 'MSBuild'}\" DockerrApi.sln /p:Configuration=Debug /p:Platform=\"Any CPU\""
       }
     }
       stage("test") {
